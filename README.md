@@ -30,7 +30,7 @@ version: '3.1'
 services:
 
   civicrm:
-    image: jonathancabezas/civicrm
+    image: dotriver/civicrm
     environment:
       - DATABASE_HOST=mariadb
       - DATABASE_PORT=3306
@@ -58,7 +58,7 @@ services:
       mode: global
 
   mariadb:
-    image: samirkherraz/mariadb
+    image: dotriver/mariadb
     environment:
       - ROOT_PASSWORD=password
       - DB_0_NAME=drupal

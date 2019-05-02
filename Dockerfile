@@ -1,4 +1,4 @@
-FROM jonathancabezas/drupal
+FROM dotriver/drupal
 
 ENV CIVICRM_DB_NAME=civicrm \
     CIVICRM_DB_USERNAME=civicrm \
