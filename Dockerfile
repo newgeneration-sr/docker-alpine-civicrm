@@ -4,7 +4,7 @@ ENV CIVICRM_DB_NAME=civicrm \
     CIVICRM_DB_USERNAME=civicrm \
     CIVICRM_DB_PASSWORD=password
 
-RUN apk add --no-cache memcached php7-memcached wkhtmltopdf xvfb xauth fontconfig ttf-freefont \
+RUN apk add --no-cache wkhtmltopdf xvfb xauth fontconfig ttf-freefont \
     && echo 'xvfb-run --server-args="-screen 0, 1024x768x24" /usr/bin/wkhtmltopdf $*' > /usr/local/bin/wkhtmltopdf \
     && chmod a+rx /usr/local/bin/wkhtmltopdf
 
