@@ -45,7 +45,7 @@ then
         --langtarfile=/opt/ressources/civicrm-l10n.tgz \
         --ssl=${USE_HTTPS} || fail
     
-    run unzip -q /opt/ressources/shoreditch.zip -d /var/www/drupal/web/sites/all/modules/civicrm/ext/ || fail
+    run unzip -q /opt/ressources/shoreditch.zip -d /var/www/drupal/web/sites/default/files/civicrm/ext/ || fail
 
     echo ">>> Installing Drupal Extensions"
     run cp /opt/ressources/betterlogin.tar.gz /var/www/drupal/web/sites/all/modules/ 
