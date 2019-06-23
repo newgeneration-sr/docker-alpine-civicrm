@@ -1,4 +1,4 @@
-# CiviCRM 5.11.0 + Drupal 7
+# CiviCRM 5.14.1 + Drupal 7
 
 # Auto configuration parameters :
 
@@ -24,7 +24,6 @@ New parameters :
 # Compose file exemple
 
 ```
-
 version: '3.1'
 
 services:
@@ -47,6 +46,8 @@ services:
       - ADMIN_EMAIL=admin@example.com
     ports:
       - 8080:80
+    volumes:
+      - civicrm-data:/var/www/drupal/
     networks:
       default:
     deploy:
@@ -82,7 +83,7 @@ services:
       mode: global
 
 volumes:
+    civicrm-data:
     mariadb-data:
     mariadb-config:
-
 ```
