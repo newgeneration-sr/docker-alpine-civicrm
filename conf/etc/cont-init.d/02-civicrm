@@ -45,7 +45,7 @@ then
         --langtarfile=/opt/ressources/civicrm-l10n.tgz \
         --ssl=${USE_HTTPS} || fail
     
-    run unzip -q /opt/ressources/shoreditch.zip -d /var/www/drupal/web/sites/default/files/civicrm/ext/ || fail
+    run tar -xzf /opt/ressources/shoreditch.tgz -C /var/www/drupal/web/sites/default/files/civicrm/ext/ || fail
 
     echo ">>> Installing Drupal Extensions"
     run cp /opt/ressources/betterlogin.tar.gz /var/www/drupal/web/sites/all/modules/ 
@@ -56,7 +56,7 @@ then
 
     echo ">>> Installing CiviCRM Extensions"
     run vendor/bin/drush civicrm-ext-install org.civicrm.shoreditch || fail
-    run vendor/bin/drush cvapi Setting.create customCSSURL="[civicrm.root]/ext/org.civicrm.shoreditch-0.1-alpha31/css/custom-civicrm.css" || fail
+    run vendor/bin/drush cvapi Setting.create customCSSURL="[civicrm.files]/ext/org.civicrm.shoreditch-0.1-alpha31/css/custom-civicrm.css" || fail
 
     echo ">>> Setting up Drupal and Civicrm Themes"
     run vendor/bin/drush vset civicrmtheme_theme_admin seven
