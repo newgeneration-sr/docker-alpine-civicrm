@@ -5,8 +5,8 @@ ENV CIVICRM_DB_NAME=civicrm \
     CIVICRM_DB_PASSWORD=password \
     CIVICRM_VERSION=5.14.1
 
-RUN apk add --no-cache wkhtmltopdf xvfb xauth fontconfig ttf-freefont \
-    && echo 'xvfb-run --server-args="-screen 0, 1024x768x24" /usr/bin/wkhtmltopdf $*' > /usr/local/bin/wkhtmltopdf \
+RUN apk add --no-cache wkhtmltopdf xvfb xauth fontconfig ttf-freefont coreutils \
+    && echo 'xvfb-run --server-args="-screen 0, 1024x768x24" -a /usr/bin/wkhtmltopdf $*' > /usr/local/bin/wkhtmltopdf \
     && chmod a+rx /usr/local/bin/wkhtmltopdf
 
 RUN mkdir -p /opt/ressources/ \
