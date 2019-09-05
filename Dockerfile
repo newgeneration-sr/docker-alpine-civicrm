@@ -5,15 +5,15 @@ ENV CIVICRM_DB_NAME=civicrm \
     CIVICRM_DB_PASSWORD=password \
     CIVICRM_VERSION=5.14.1
 
-RUN apk add --no-cache wkhtmltopdf xvfb xauth fontconfig ttf-freefont coreutils \
+RUN apk add --no-cache wkhtmltopdf xvfb xauth fontconfig ttf-freefont coreutils curl \
     && echo 'xvfb-run --server-args="-screen 0, 1024x768x24" -a /usr/bin/wkhtmltopdf $*' > /usr/local/bin/wkhtmltopdf \
     && chmod a+rx /usr/local/bin/wkhtmltopdf
 
 RUN mkdir -p /opt/ressources/ \
-    && wget -q https://download.civicrm.org/civicrm-${CIVICRM_VERSION}-drupal.tar.gz -O /opt/ressources/civicrm.tgz \
-    && wget -q https://download.civicrm.org/civicrm-${CIVICRM_VERSION}-l10n.tar.gz -O /opt/ressources/civicrm-l10n.tgz \
-    && wget -q https://ftp.drupal.org/files/projects/betterlogin-7.x-1.5.tar.gz -O /opt/ressources/betterlogin.tar.gz \
-    && wget -q https://raw.githubusercontent.com/civicrm/civicrm-drupal/7.x-master/drush/civicrm.drush.inc -O /opt/ressources/civicrm.drush.inc
+    && curl -s -L https://download.civicrm.org/civicrm-${CIVICRM_VERSION}-drupal.tar.gz --output /opt/ressources/civicrm.tgz \
+    && curl -s -L https://download.civicrm.org/civicrm-${CIVICRM_VERSION}-l10n.tar.gz --output /opt/ressources/civicrm-l10n.tgz \
+    && curl -s -L https://ftp.drupal.org/files/projects/betterlogin-7.x-1.5.tar.gz --output /opt/ressources/betterlogin.tar.gz \
+    && curl -s -L https://raw.githubusercontent.com/civicrm/civicrm-drupal/7.x-master/drush/civicrm.drush.inc --output /opt/ressources/civicrm.drush.inc
 
 ADD conf/ /
 
