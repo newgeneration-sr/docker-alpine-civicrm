@@ -24,7 +24,7 @@ New parameters :
 # Compose file exemple
 
 ```
-version: '3.1'
+version: '3'
 
 services:
 
@@ -50,14 +50,7 @@ services:
       - civicrm-data:/var/www/drupal/
     networks:
       default:
-    deploy:
-      resources:
-        limits:
-          memory: 256M
-      restart_policy:
-        condition: on-failure
-      mode: global
-
+    
   mariadb:
     image: dotriver/mariadb
     environment:
@@ -74,16 +67,10 @@ services:
       - mariadb-config:/etc/mysql/
     networks:
       default:
-    deploy:
-      resources:
-        limits:
-          memory: 256M
-      restart_policy:
-        condition: on-failure
-      mode: global
-
+    
 volumes:
     civicrm-data:
     mariadb-data:
     mariadb-config:
+    
 ```
