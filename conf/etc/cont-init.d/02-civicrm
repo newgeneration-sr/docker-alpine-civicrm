@@ -44,7 +44,7 @@ then
         --lang=fr_FR \
         --langtarfile=/opt/ressources/civicrm-l10n.tgz \
         --ssl=${USE_HTTPS} || fail
-    
+    ls /opt/ressources/
     run tar -xzf /opt/ressources/shoreditch.tgz -C /var/www/drupal/web/sites/default/files/civicrm/ext/ || fail
 
     echo ">>> Installing Drupal Extensions"
