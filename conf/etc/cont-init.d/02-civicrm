@@ -26,6 +26,10 @@ run(){
     return $? 
 }
 
+disable_cron(){
+    rm /etc/periodic/15min/02-civicrm
+}
+
 if [ ! -d /var/www/drupal/web/sites/all/modules/civicrm ] 
 then 
     wait_db
@@ -69,6 +73,11 @@ then
 
     echo ">>> Enabling Civicrm Memcached"
     sed -i "s/ArrayCache/Memcached/g" /var/www/drupal/web/sites/default/civicrm.settings.php
+fi
+
+if [ "$CIVICRM_NO_CRON" = "YES" ];
+then
+    disable_cron
 fi
 
 success

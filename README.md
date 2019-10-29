@@ -20,6 +20,7 @@ New parameters :
 - CIVICRM_DB_NAME=civicrm       ( Name of the civicrm database )
 - CIVICRM_DB_USERNAME=civicrm   ( Username to connect to the civicrm database )
 - CIVICRM_DB_PASSWORD=password  ( Password to connect to the civicrm database )
+- CIVICRM_NO_CRON=YES           ( Disable Cron for test instances )
 
 # Compose file exemple
 
