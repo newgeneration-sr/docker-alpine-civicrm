@@ -7,5 +7,5 @@ run(){
 
 if [ -f /tmp/civicrm ] && [ $(cat /tmp/civicrm) -eq 0 ]
 then
-    run vendor/bin/drush -u ${ADMIN_USERNAME} civicrm-api job.execute auth=0
+    run vendor/bin/drush -u ${ADMIN_USERNAME} civicrm-api job.execute
 fi
