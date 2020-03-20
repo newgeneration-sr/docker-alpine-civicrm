@@ -80,4 +80,7 @@ then
     disable_cron
 fi
 
+
+
+sed -i "/disable_functions =.*/c\disable_functions = money_format" /etc/php7/php.ini
 success
