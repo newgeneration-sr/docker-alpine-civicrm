@@ -83,4 +83,5 @@ fi
 
 
 sed -i "/disable_functions =.*/c\disable_functions = money_format" /etc/php7/php.ini
+sed -i "/max_input_vars =.*/c\max_input_vars = 2000" /etc/php7/php.ini
 success
