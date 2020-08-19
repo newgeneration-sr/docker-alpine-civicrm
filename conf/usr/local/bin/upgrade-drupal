@@ -1,0 +1,4 @@
+#!/bin/ash
+cd /var/wwww/drupal
+rm -R vendor
+composer update

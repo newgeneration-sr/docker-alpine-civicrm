@@ -19,7 +19,7 @@ ADD conf/ /
 
 
 RUN set -x \
-    && chmod +x /usr/local/bin/xvfb-run \
+    && chmod +x /usr/local/bin/* \
     && chmod +x /etc/cont-init.d/* \
     && chmod +x /etc/s6/services/*/* \
     && chmod +x /etc/periodic/*/*

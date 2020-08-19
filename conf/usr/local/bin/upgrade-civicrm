@@ -1,0 +1,11 @@
+#!/bin/ash
+VERSION=$1
+cd /var/www/drupal/
+wget https://download.civicrm.org/civicrm-$VERSION-l10n.tar.gz && \
+wget https://download.civicrm.org/civicrm-$VERSION-drupal.tar.gz && \
+mv web/sites/all/modules/civicrm/ . && \
+tar -xzf civicrm-$VERSION-drupal.tar.gz -C web/sites/all/modules/ && \
+tar -xzf civicrm-$VERSION-l10n.tar.gz  -C web/sites/all/modules/ && \
+chown nginx:nginx web/sites/all/modules/ -R && \
+./vendor/bin/drush cvupdb && \
+rm -R civicrm civicrm-$VERSION-drupal.tar.gz civicrm-$VERSION-l10n.tar.gz 
