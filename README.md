@@ -1,4 +1,10 @@
+![docker build automated](https://img.shields.io/docker/cloud/automated/dotriver/civicrm)
+![docker build status](https://img.shields.io/docker/cloud/build/dotriver/civicrm)
+![docker build status](https://img.shields.io/docker/cloud/pulls/dotriver/civicrm)
+
 # CiviCRM 5.14.1 + Drupal 7
+
+Civicrm documentation [here](https://docs.civicrm.org/) ([fr](https://doc.symbiotic.coop/))
 
 # Auto configuration parameters :
 
